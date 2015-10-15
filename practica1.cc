@@ -105,7 +105,7 @@ void cambio_modo(unsigned char Tecla1){
         modo=2;
     if(toupper(Tecla1)=='P') //puntos
         modo=0;
-    if(toupper(Tecla1)=='A') // aritas
+    if(toupper(Tecla1)=='A') // aristas
         modo=1;
     if(toupper(Tecla1)=='C') //ajedrez
         modo=3;
@@ -460,14 +460,27 @@ glPointSize(4);
             _vertex3f Vertex_1;
             _vertex3f Vertex_2;
             _vertex3f Vertex_3;
-            glBegin(GL_LINES);
+          //  glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+
+            glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
 
-                 Vertex_1 = Verticess[Edges[i][0]];
+
+                 Vertex_1 = Verticess[CarasC[i][0]];
+                 Vertex_2 = Verticess[CarasC[i][1]];
+                 Vertex_3 = Verticess[CarasC[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+
+
+               /*  Vertex_1 = Verticess[Edges[i][0]];
                  Vertex_2 = Verticess[Edges[i][1]];
 
                 glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
                 glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                */
             }
             glEnd();
 
