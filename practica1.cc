@@ -382,7 +382,7 @@ glEnd();
 void draw_objects()
 {
 
-
+glColor3f(1,0,0);
 
 int i=0;
 
@@ -457,6 +457,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
 
+
             // modo puntos
             glBegin(GL_POINTS);
             for (i=0;i<4;i++){
@@ -466,10 +467,11 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
             glEnd();
 
 
-            // modo alambre
 
-            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-             glColor3f(3,3,4);
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+            //modo solido
+             glColor3f(0,2,0);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<4; i++){
 
@@ -483,9 +485,10 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
             }
             glEnd();
 
-            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-            //modo solido
-             glColor3f(0,2,0);
+            // modo alambre
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+             glColor3f(3,3,4);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<4; i++){
 
@@ -586,7 +589,6 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
         }else if (modo == 4){
 
 
-
             //puntos
 
             glBegin(GL_POINTS);
@@ -594,6 +596,24 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
                 glVertex3f(Verticess[i].x,Verticess[i].y,Verticess[i].z);
                 }
+            glEnd();
+
+
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+
+            glColor3f(0,2,0);
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<12; i++){
+
+                 Vertex_1 = Verticess[CarasC[i][0]];
+                 Vertex_2 = Verticess[CarasC[i][1]];
+                 Vertex_3 = Verticess[CarasC[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+            }
             glEnd();
 
             //alambre
@@ -615,23 +635,6 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
             }
             glEnd();
-
-            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-
-            glColor3f(0,2,0);
-            glBegin(GL_TRIANGLES);
-            for (int i=0; i<12; i++){
-
-                 Vertex_1 = Verticess[CarasC[i][0]];
-                 Vertex_2 = Verticess[CarasC[i][1]];
-                 Vertex_3 = Verticess[CarasC[i][2]];
-
-                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
-                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
-            }
-            glEnd();
-
 
 
         }
@@ -748,9 +751,9 @@ glutPostRedisplay();
 void initialize(void)
 {
 // se inicalizan la ventana y los planos de corte
-Window_width=5;
-Window_height=5;
-Front_plane=10;
+Window_width=0.5;
+Window_height=0.5;
+Front_plane=1;
 Back_plane=1000;
 
 // se inicia la posicion del observador, en el eje z
