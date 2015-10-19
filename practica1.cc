@@ -13,6 +13,8 @@
 #include <vertex.h>
 #include <unistd.h>
 
+
+
 void modo_triangulo();
 
 
@@ -29,7 +31,7 @@ GLfloat Observer_angle_y;
 GLfloat Window_width,Window_height,Front_plane,Back_plane;
 
 // variables que determninan la posicion y tamaño de la ventana X
-int UI_window_pos_x=50,UI_window_pos_y=50,UI_window_width=500,UI_window_height=500;
+int UI_window_pos_x=50,UI_window_pos_y=50,UI_window_width=900,UI_window_height=900;
 
 
 
