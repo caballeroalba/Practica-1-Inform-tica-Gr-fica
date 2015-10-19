@@ -444,6 +444,7 @@ glPointSize(4);
         }
     }else if ( objeto == 0){
 
+        glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
         if ( modo ==0){
@@ -460,7 +461,7 @@ glPointSize(4);
             _vertex3f Vertex_1;
             _vertex3f Vertex_2;
             _vertex3f Vertex_3;
-          //  glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
             glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
