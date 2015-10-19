@@ -469,7 +469,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
             // modo alambre
 
             glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
+             glColor3f(3,3,4);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<4; i++){
 
@@ -485,6 +485,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
             glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
             //modo solido
+             glColor3f(0,2,0);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<4; i++){
 
@@ -598,7 +599,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
             //alambre
 
             glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
+            glColor3f(3,3,4);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
 
@@ -617,7 +618,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
             glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
-
+            glColor3f(0,2,0);
             glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
 
