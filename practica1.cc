@@ -127,7 +127,7 @@ void cambio_modo(unsigned char Tecla1){
 void carga_triangulo(){
 
   //Tetraedro
-        GLfloat VerticesTe[4][3]={{2,0,1},{-2,0,1},{0,0,-2},{0,4,0}};
+        GLfloat VerticesTe[4][3]={{2,-1,1},{-2,-1,1},{0,-1,-2},{0,2,0}};
 
 
 
