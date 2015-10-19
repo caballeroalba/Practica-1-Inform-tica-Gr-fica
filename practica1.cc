@@ -107,7 +107,7 @@ void modo_puntos(){
 
 void cambio_modo(unsigned char Tecla1){
 
-    if (toupper(Tecla1)=='T')//solido
+    if (toupper(Tecla1)=='S')//solido
         modo=2;
     if(toupper(Tecla1)=='P') //puntos
         modo=0;
@@ -115,6 +115,9 @@ void cambio_modo(unsigned char Tecla1){
         modo=1;
     if(toupper(Tecla1)=='C') //ajedrez
         modo=3;
+
+    if(toupper(Tecla1)=='T') // todo a la vez
+        modo=4;
 
 
 }
@@ -383,6 +386,7 @@ int i=0;
 
 glColor3f(0,1,0);
 glPointSize(4);
+glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
     if (objeto == 1){
@@ -414,16 +418,18 @@ glPointSize(4);
 
 
         } else if (modo == 1){
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
-            glBegin(GL_LINES);
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<4; i++){
 
-            for (int i=0; i<6; i++){
-
-                 Vertex_1 = VerticesT[EdgesT[i][0]];
-                 Vertex_2 = VerticesT[EdgesT[i][1]];
+                 Vertex_1 = VerticesT[Caras[i][0]];
+                 Vertex_2 = VerticesT[Caras[i][1]];
+                 Vertex_3 = VerticesT[Caras[i][2]];
 
                 glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
                 glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
             }
             glEnd();
         } else if (modo == 3){
@@ -445,10 +451,56 @@ glPointSize(4);
                  glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
             }
             glEnd();
+        } else if (modo == 4){
+
+
+
+            // modo puntos
+            glBegin(GL_POINTS);
+            for (i=0;i<4;i++){
+
+                glVertex3f(VerticesT[i].x,VerticesT[i].y,VerticesT[i].z);
+                }
+            glEnd();
+
+
+            // modo alambre
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<4; i++){
+
+                 Vertex_1 = VerticesT[Caras[i][0]];
+                 Vertex_2 = VerticesT[Caras[i][1]];
+                 Vertex_3 = VerticesT[Caras[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+            }
+            glEnd();
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+            //modo solido
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<4; i++){
+
+                 Vertex_1 = VerticesT[Caras[i][0]];
+                 Vertex_2 = VerticesT[Caras[i][1]];
+                 Vertex_3 = VerticesT[Caras[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+            }
+            glEnd();
+
+
+
         }
     }else if ( objeto == 0){
 
-        glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
         if ( modo ==0){
@@ -528,6 +580,57 @@ glPointSize(4);
 
 
 
+        }else if (modo == 4){
+
+
+
+            //puntos
+
+            glBegin(GL_POINTS);
+            for (i=0;i<8;i++){
+
+                glVertex3f(Verticess[i].x,Verticess[i].y,Verticess[i].z);
+                }
+            glEnd();
+
+            //alambre
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
+
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<12; i++){
+
+
+                 Vertex_1 = Verticess[CarasC[i][0]];
+                 Vertex_2 = Verticess[CarasC[i][1]];
+                 Vertex_3 = Verticess[CarasC[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+
+
+            }
+            glEnd();
+
+            glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+
+
+            glBegin(GL_TRIANGLES);
+            for (int i=0; i<12; i++){
+
+                 Vertex_1 = Verticess[CarasC[i][0]];
+                 Vertex_2 = Verticess[CarasC[i][1]];
+                 Vertex_3 = Verticess[CarasC[i][2]];
+
+                glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
+                glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
+                 glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
+            }
+            glEnd();
+
+
+
         }
 
     }
@@ -593,11 +696,13 @@ void normal_keys(unsigned char Tecla1,int x,int y)
 {
 
 if (toupper(Tecla1)=='Q') exit(0);
-if (toupper(Tecla1)=='T') cambio_modo(Tecla1);
+if (toupper(Tecla1)=='S') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='O') cambio_objeto();
 if (toupper(Tecla1)=='P') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='C') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='A') cambio_modo(Tecla1);
+if (toupper(Tecla1)=='T') cambio_modo(Tecla1);
+
 
 
 
