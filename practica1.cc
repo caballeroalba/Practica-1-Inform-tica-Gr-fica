@@ -292,7 +292,7 @@ void carga_cubo(){
 
     CarasC[9][0]=2;
     CarasC[9][1]=0;
-    CarasC[9][2]=4;
+    CarasC[9][2]=6; //4
 
 
     CarasC[10][0]=6;
