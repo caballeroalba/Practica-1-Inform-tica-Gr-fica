@@ -69,6 +69,12 @@ int EdgesT[6][2];
 int Caras[4][3];
 
 
+//variables globales de  los puntos
+
+_vertex3f Vertex_1;
+_vertex3f Vertex_2;
+_vertex3f Vertex_3;
+
 
 void cambio_objeto(){
 
@@ -380,9 +386,7 @@ glPointSize(4);
 
 
     if (objeto == 1){
-        _vertex3f Vertex_1;
-        _vertex3f Vertex_2;
-        _vertex3f Vertex_3;
+
 
         if(modo == 2){
 
@@ -458,9 +462,7 @@ glPointSize(4);
 
         } else if ( modo == 1){
 
-            _vertex3f Vertex_1;
-            _vertex3f Vertex_2;
-            _vertex3f Vertex_3;
+
             glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
             glBegin(GL_TRIANGLES);
@@ -475,7 +477,7 @@ glPointSize(4);
                 glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
                  glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
 
-
+                //modo para hacerlo con lineas
                /*  Vertex_1 = Verticess[Edges[i][0]];
                  Vertex_2 = Verticess[Edges[i][1]];
 
@@ -486,9 +488,7 @@ glPointSize(4);
             glEnd();
 
         } else if ( modo == 2){
-            _vertex3f Vertex_1;
-            _vertex3f Vertex_2;
-            _vertex3f Vertex_3;
+
 
             glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
@@ -505,9 +505,7 @@ glPointSize(4);
 
         }else if ( modo == 3){
 
-            _vertex3f Vertex_1;
-            _vertex3f Vertex_2;
-            _vertex3f Vertex_3;
+
 
             glBegin(GL_TRIANGLES);
             for (int i=0; i<12; i++){
@@ -534,65 +532,6 @@ glPointSize(4);
 
     }
 
-
-/*
-
-_vertex3f Vertex_1;
- _vertex3f Vertex_2;
-  _vertex3f Vertex_3;
-glBegin(GL_TRIANGLES);
-for (int i=0; i<4; i++){
-
-     Vertex_1 = VerticesT[Caras[i][0]];
-     Vertex_2 = VerticesT[Caras[i][1]];
-     Vertex_3 = VerticesT[Caras[i][2]];
-
-    glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
-    glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-     glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
-}
-glEnd();
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-/*
-glBegin(GL_POINTS);
-for (i=0;i<8;i++){
-    glVertex3fv((GLfloat *) &Vertices[i]);
-    }
-glEnd();
-*/
-
-/*
-
-
-*/
-/*
-
-
-
-
-
-*/
-
-
-
-
-
-
-/*
-
-*/
 
 /*
 //Trapezoid
@@ -691,16 +630,7 @@ glutPostRedisplay();
 
 
 
-void modo_triangulo(){
 
-
-
-   draw_scene();
-
-
-
-
-}
 
 
 //***************************************************************************
