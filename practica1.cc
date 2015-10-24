@@ -12,6 +12,7 @@
 #include <ctype.h>
 #include <vertex.h>
 #include <unistd.h>
+#include "cubo.h"
 
 
 
@@ -391,6 +392,10 @@ glPointSize(4);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
+Cubo cubo;
+
+cubo.dibuja_cubo(modo);
+/*
     if (objeto == 1){
 
 
@@ -541,7 +546,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
                 glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
                 glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-                */
+
             }
             glEnd();
 
@@ -640,7 +645,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
         }
 
     }
-
+*/
 
 /*
 //Trapezoid
@@ -789,7 +794,7 @@ int main(int argc, char **argv)
 
 
 
-carga_cubo();
+//carga_cubo();
 
 carga_triangulo();
 // se llama a la inicialización de glut
