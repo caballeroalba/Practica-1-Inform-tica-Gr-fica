@@ -13,6 +13,7 @@
 #include <vertex.h>
 #include <unistd.h>
 #include "cubo.h"
+#include "tetraedro.h"
 
 
 
@@ -65,16 +66,10 @@ Cubo cubo;
 
 //Variables del tetraedro
 
-_vertex3f VerticesT[4];
-int EdgesT[6][2];
-int Caras[4][3];
-
+Tetraedro tetraedro;
 
 //variables globales de  los puntos
 
-_vertex3f Vertex_1;
-_vertex3f Vertex_2;
-_vertex3f Vertex_3;
 
 
 void cambio_objeto(){
@@ -122,7 +117,7 @@ void cambio_modo(unsigned char Tecla1){
 
 
 }
-
+/*
 void carga_triangulo(){
 
   //Tetraedro
@@ -187,7 +182,7 @@ void carga_triangulo(){
 
 }
 
-
+*/
 
 
 //**************************************************************************
@@ -270,9 +265,12 @@ glPointSize(4);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
-
+if (objeto==0){
+    tetraedro.dibuja_tetraedro(modo);
+}else{
 
 cubo.dibuja_cubo(modo);
+}
 /*
     if (objeto == 1){
 
@@ -419,7 +417,7 @@ cubo.dibuja_cubo(modo);
                  glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
 
                 //modo para hacerlo con lineas
-               /*  Vertex_1 = Verticess[Edges[i][0]];
+                 Vertex_1 = Verticess[Edges[i][0]];
                  Vertex_2 = Verticess[Edges[i][1]];
 
                 glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);

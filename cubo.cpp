@@ -60,7 +60,10 @@ Cubo::Cubo()
     Edges[7][0]=6;
     Edges[7][1]=7;
 
-    Edges[8][0]=4;
+    Edges[8][0]=4;_vertex3f Vertex_1;
+    _vertex3f Vertex_2;
+    _vertex3f Vertex_3;
+
     Edges[8][1]=6;
 
 
