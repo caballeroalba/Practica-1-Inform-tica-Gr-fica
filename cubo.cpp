@@ -166,7 +166,7 @@ void Cubo::dibuja_cubo_aristas(){
 
     glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
-    glColor3f(0,2,0);
+    glColor3f(255,2,0);
     glBegin(GL_TRIANGLES);
     for (int i=0; i<12; i++){
 
@@ -226,8 +226,9 @@ void Cubo::dibuja_cubo_ajedrez(){
 
 void Cubo::dibuja_cubo_todo(){
 
-
+    glColor3f(255,0,0);
     dibuja_cubo_puntos();
+
     dibuja_cubo_aristas();
     dibuja_cubo_solido();
 }
