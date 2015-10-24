@@ -59,9 +59,7 @@ _vertex2i Edge;
 
 //variables del cubo
 
-_vertex3f Verticess[8];
-int Edges[12][2];
-int CarasC[12][3];
+Cubo cubo;
 
 
 
@@ -189,126 +187,6 @@ void carga_triangulo(){
 
 }
 
-void carga_cubo(){
-
-    //vectores
-
-    //Cubo
-    GLfloat VerticesCubo[8][3]={{-2,2,2},{2,2,2},{-2,-2,2},{2,-2,2},{-2,2,-2},{2,2,-2},{-2,-2,-2},{2,-2,-2}};
-
-
-
-
-    _vertex3f Vertex1;
-    int i;
-    for (i=0; i<8; i++){
-        Vertex1.x=VerticesCubo[i][0];
-        Vertex1.y=VerticesCubo[i][1];
-        Vertex1.z=VerticesCubo[i][2];
-
-        Verticess[i]=Vertex1;
-
-    }
-
-    //Aristas
-
-   // int Edges[8][2];
-
-
-    Edges[0][0]=0;
-    Edges[0][1]=1;
-
-    Edges[1][0]=0;
-    Edges[1][1]=2;
-
-    Edges[2][0]=2;
-    Edges[2][1]=3;
-
-    Edges[3][0]=1;
-    Edges[3][1]=3;
-
-    Edges[4][0]=0;
-    Edges[4][1]=4;
-
-    Edges[5][0]=4;
-    Edges[5][1]=5;
-
-
-    Edges[6][0]=5;
-    Edges[6][1]=7;
-
-
-    Edges[7][0]=6;
-    Edges[7][1]=7;
-
-    Edges[8][0]=4;
-    Edges[8][1]=6;
-
-
-    Edges[9][0]=2;
-    Edges[9][1]=6;
-
-    Edges[10][0]=1;
-    Edges[10][1]=5;
-
-    Edges[11][0]=3;
-    Edges[11][1]=7;
-
-
-    //caras
-
-    CarasC[0][0]=0;
-    CarasC[0][1]=1;
-    CarasC[0][2]=2;
-
-    CarasC[1][0]=1;
-    CarasC[1][1]=2;
-    CarasC[1][2]=3;
-
-    CarasC[2][0]=4;
-    CarasC[2][1]=5;
-    CarasC[2][2]=6;
-
-    CarasC[3][0]=5;
-    CarasC[3][1]=6;
-    CarasC[3][2]=7;
-
-    CarasC[4][0]=0;
-    CarasC[4][1]=4;
-    CarasC[4][2]=5;
-
-    CarasC[5][0]=5;
-    CarasC[5][1]=1;
-    CarasC[5][2]=0;
-
-    CarasC[6][0]=1;
-    CarasC[6][1]=5;
-    CarasC[6][2]=3;
-
-    CarasC[7][0]=5;
-    CarasC[7][1]=7;
-    CarasC[7][2]=3;
-
-    CarasC[8][0]=0;
-    CarasC[8][1]=4;
-    CarasC[8][2]=6;
-
-    CarasC[9][0]=2;
-    CarasC[9][1]=0;
-    CarasC[9][2]=6; //4
-
-
-    CarasC[10][0]=6;
-    CarasC[10][1]=7;
-    CarasC[10][2]=2;
-
-    CarasC[11][0]=7;
-    CarasC[11][1]=3;
-    CarasC[11][2]=2;
-
-
-}
-
 
 
 
@@ -392,7 +270,7 @@ glPointSize(4);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
-Cubo cubo;
+
 
 cubo.dibuja_cubo(modo);
 /*
@@ -793,10 +671,9 @@ int main(int argc, char **argv)
 
 
 
-
 //carga_cubo();
 
-carga_triangulo();
+//carga_triangulo();
 // se llama a la inicialización de glut
 glutInit(&argc, argv);
 
