@@ -200,7 +200,7 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 if (objeto==0){
     tetraedro.dibuja_tetraedro(modo);
-}else{
+}else if (objeto==1){
 
     cubo.dibuja_cubo(modo);
 }
