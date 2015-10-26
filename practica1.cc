@@ -16,7 +16,7 @@
 #include "tetraedro.h"
 
 
-
+void carga_fichero_ply();
 void modo_triangulo();
 
 
@@ -273,6 +273,9 @@ if (toupper(Tecla1)=='C') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='A') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='T') cambio_modo(Tecla1);
 
+//Prática 2, ficheros ply
+if (toupper(Tecla1=='M')) carga_fichero_ply();
+
 
 
 
@@ -393,3 +396,9 @@ return 0;
 }
 
 
+//Metodos practica 2
+
+void carga_fichero_ply(){
+
+    return ;
+}
