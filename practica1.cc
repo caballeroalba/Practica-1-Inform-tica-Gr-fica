@@ -191,7 +191,7 @@ void draw_objects()
 
 glColor3f(1,0,0);
 
-int i=0;
+
 
 glColor3f(0,1,0);
 glPointSize(9);
@@ -199,10 +199,10 @@ glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
 if (objeto==0){
-    tetraedro.dibuja_tetraedro(modo);
-}else{
-
-    cubo.dibuja_cubo(modo);
+    tetraedro.dibuja(modo);
+}else if (objeto==1){
+    cubo.dibuja(modo);
+  //  cubo.dibuja_cubo(modo);
 }
 
 
