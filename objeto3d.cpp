@@ -61,7 +61,7 @@ void Objeto3D::dibuja_aristas(){
 
 void Objeto3D::dibuja_solido(){
 
-/*
+
     glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
     glColor3f(0,2,0);
@@ -69,16 +69,16 @@ void Objeto3D::dibuja_solido(){
     for (int i=0; i<CarasC.size(); i++){
 
          Triangle t= CarasC[i];
-         Vertex_1 = Vertices[CarasC[i][0]];
-         Vertex_2 = Vertices[CarasC[i][1]];
-         Vertex_3 = Vertices[CarasC[i][2]];
+         Vertex_1 = t.get_point_1();
+         Vertex_2 = t.get_point_2();
+         Vertex_3 = t.get_point_3();
 
         glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
         glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
          glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
     }
     glEnd();
-*/
+
 
 
 }
