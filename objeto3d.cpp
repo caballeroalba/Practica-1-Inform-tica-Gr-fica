@@ -27,7 +27,7 @@ void Objeto3D::dibuja_puntos(){
 
     glBegin(GL_POINTS);
     int i;
-    for (i=0;i<=Vertices.size(); i++){
+    for (i=0;i<Vertices.size(); i++){
 
         glVertex3f(Vertices[i].x,Vertices[i].y,Vertices[i].z);
         }
