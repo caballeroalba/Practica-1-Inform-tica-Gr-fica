@@ -15,6 +15,9 @@ public:
     _vertex3f get_point_1();
     _vertex3f get_point_2();
     _vertex3f get_point_3();
+    void set_point_1(_vertex3f p1);
+    void set_point_2(_vertex3f p2);
+    void set_point_3(_vertex3f p3);
 
 };
 
