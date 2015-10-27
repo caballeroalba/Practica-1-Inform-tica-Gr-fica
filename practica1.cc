@@ -194,7 +194,7 @@ glColor3f(1,0,0);
 int i=0;
 
 glColor3f(0,1,0);
-glPointSize(4);
+glPointSize(9);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
