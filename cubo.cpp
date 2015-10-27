@@ -17,224 +17,146 @@ Cubo::Cubo()
 
 
 
-
+    vector<_vertex3f> listaV;
     _vertex3f Vertex1;
     int i;
     for (i=0; i<8; i++){
         Vertex1.x=VerticesCubo[i][0];
         Vertex1.y=VerticesCubo[i][1];
         Vertex1.z=VerticesCubo[i][2];
-
-        Vertices[i]=Vertex1;
+        listaV.insert(listaV.begin(),Vertex1);
+       // Vertices[i]=Vertex1;
 
     }
-
+    this->set_vertices(listaV);
     //Aristas
 
-   // int Edges[8][2];
+   // int Edgess[8][2];
+
+    int Edgess[11][2];
+    Edgess[0][0]=0;
+    Edgess[0][1]=1;
+
+    Edgess[1][0]=0;
+    Edgess[1][1]=2;
+
+    Edgess[2][0]=2;
+    Edgess[2][1]=3;
+
+    Edgess[3][0]=1;
+    Edgess[3][1]=3;
+
+    Edgess[4][0]=0;
+    Edgess[4][1]=4;
+
+    Edgess[5][0]=4;
+    Edgess[5][1]=5;
 
 
-    Edges[0][0]=0;
-    Edges[0][1]=1;
-
-    Edges[1][0]=0;
-    Edges[1][1]=2;
-
-    Edges[2][0]=2;
-    Edges[2][1]=3;
-
-    Edges[3][0]=1;
-    Edges[3][1]=3;
-
-    Edges[4][0]=0;
-    Edges[4][1]=4;
-
-    Edges[5][0]=4;
-    Edges[5][1]=5;
+    Edgess[6][0]=5;
+    Edgess[6][1]=7;
 
 
-    Edges[6][0]=5;
-    Edges[6][1]=7;
+    Edgess[7][0]=6;
+    Edgess[7][1]=7;
+
+    Edgess[8][0]=4;
+
+    Edgess[8][1]=6;
 
 
-    Edges[7][0]=6;
-    Edges[7][1]=7;
+    Edgess[9][0]=2;
+    Edgess[9][1]=6;
 
-    Edges[8][0]=4;_vertex3f Vertex_1;
-    _vertex3f Vertex_2;
-    _vertex3f Vertex_3;
+    Edgess[10][0]=1;
+    Edgess[10][1]=5;
 
-    Edges[8][1]=6;
+    Edgess[11][0]=3;
+    Edgess[11][1]=7;
+     vector<Edge> lista;
+    for (int i=0; i<=11; i++){
+
+        _vertex3f v1;
+        _vertex3f v2;
+
+        Edge e;
+
+        e.set_point_1(v1);
+        e.set_point_2(v2);
+        lista.insert(lista.begin(),e);
 
 
-    Edges[9][0]=2;
-    Edges[9][1]=6;
-
-    Edges[10][0]=1;
-    Edges[10][1]=5;
-
-    Edges[11][0]=3;
-    Edges[11][1]=7;
-
-
+    }
+    this->set_Edges(lista);
     //caras
+   int  arrayCaras[11][3];
+    arrayCaras[0][0]=0;
+    arrayCaras[0][1]=1;
+    arrayCaras[0][2]=2;
 
-    CarasC[0][0]=0;
-    CarasC[0][1]=1;
-    CarasC[0][2]=2;
+    arrayCaras[1][0]=1;
+    arrayCaras[1][1]=2;
+    arrayCaras[1][2]=3;
 
-    CarasC[1][0]=1;
-    CarasC[1][1]=2;
-    CarasC[1][2]=3;
+    arrayCaras[2][0]=4;
+    arrayCaras[2][1]=5;
+    arrayCaras[2][2]=6;
 
-    CarasC[2][0]=4;
-    CarasC[2][1]=5;
-    CarasC[2][2]=6;
+    arrayCaras[3][0]=5;
+    arrayCaras[3][1]=6;
+    arrayCaras[3][2]=7;
 
-    CarasC[3][0]=5;
-    CarasC[3][1]=6;
-    CarasC[3][2]=7;
+    arrayCaras[4][0]=0;
+    arrayCaras[4][1]=4;
+    arrayCaras[4][2]=5;
 
-    CarasC[4][0]=0;
-    CarasC[4][1]=4;
-    CarasC[4][2]=5;
+    arrayCaras[5][0]=5;
+    arrayCaras[5][1]=1;
+    arrayCaras[5][2]=0;
 
-    CarasC[5][0]=5;
-    CarasC[5][1]=1;
-    CarasC[5][2]=0;
+    arrayCaras[6][0]=1;
+    arrayCaras[6][1]=5;
+    arrayCaras[6][2]=3;
 
-    CarasC[6][0]=1;
-    CarasC[6][1]=5;
-    CarasC[6][2]=3;
+    arrayCaras[7][0]=5;
+    arrayCaras[7][1]=7;
+    arrayCaras[7][2]=3;
 
-    CarasC[7][0]=5;
-    CarasC[7][1]=7;
-    CarasC[7][2]=3;
+    arrayCaras[8][0]=0;
+    arrayCaras[8][1]=4;
+    arrayCaras[8][2]=6;
 
-    CarasC[8][0]=0;
-    CarasC[8][1]=4;
-    CarasC[8][2]=6;
-
-    CarasC[9][0]=2;
-    CarasC[9][1]=0;
-    CarasC[9][2]=6; //4
+    arrayCaras[9][0]=2;
+    arrayCaras[9][1]=0;
+    arrayCaras[9][2]=6; //4
 
 
-    CarasC[10][0]=6;
-    CarasC[10][1]=7;
-    CarasC[10][2]=2;
+    arrayCaras[10][0]=6;
+    arrayCaras[10][1]=7;
+    arrayCaras[10][2]=2;
 
-    CarasC[11][0]=7;
-    CarasC[11][1]=3;
-    CarasC[11][2]=2;
+    arrayCaras[11][0]=7;
+    arrayCaras[11][1]=3;
+    arrayCaras[11][2]=2;
 
-}
+    vector<Triangle> listaT;
+    for (int i=0; i<=11; i++){
 
-void Cubo::dibuja_cubo(int modo){
+        _vertex3f v1;
+        _vertex3f v2;
+        _vertex3f v3;
 
-    if( modo == 0){
-        dibuja_cubo_puntos();
-    }else if (modo == 1){
+        Triangle aux;
+        vector<_vertex3f> lVertices=get_vertices();
+        aux.set_point_1(lVertices[arrayCaras[i][0]]);
+        aux.set_point_2(lVertices[arrayCaras[i][1]]);
+        aux.set_point_3(lVertices[arrayCaras[i][2]]);
+        listaT.insert(listaT.begin(),aux);
 
-        dibuja_cubo_aristas();
-    }else if (modo == 2){
-
-        dibuja_cubo_solido();
-    } else if (modo == 3){
-
-        dibuja_cubo_ajedrez();
-    }else if ( modo== 4){
-
-        dibuja_cubo_todo();
     }
-
-
-
+    set_caras(listaT);
 }
 
-void Cubo::dibuja_cubo_puntos(){
-    glBegin(GL_POINTS);
-    int i;
-    for (i=0;i<8;i++){
-
-        glVertex3f(Vertices[i].x,Vertices[i].y,Vertices[i].z);
-        }
-    glEnd();
-
-}
-
-
-void Cubo::dibuja_cubo_aristas(){
-
-
-    glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
-
-    glColor3f(255,2,0);
-    glBegin(GL_TRIANGLES);
-    for (int i=0; i<12; i++){
-
-         Vertex_1 = Vertices[CarasC[i][0]];
-         Vertex_2 = Vertices[CarasC[i][1]];
-         Vertex_3 = Vertices[CarasC[i][2]];
-
-        glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
-        glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-         glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
-    }
-    glEnd();
-
-}
-
-void Cubo::dibuja_cubo_solido(){
-
-
-    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
-
-    glColor3f(0,2,0);
-    glBegin(GL_TRIANGLES);
-    for (int i=0; i<12; i++){
-
-         Vertex_1 = Vertices[CarasC[i][0]];
-         Vertex_2 = Vertices[CarasC[i][1]];
-         Vertex_3 = Vertices[CarasC[i][2]];
-
-        glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
-        glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-         glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
-    }
-    glEnd();
-}
-
-void Cubo::dibuja_cubo_ajedrez(){
-    glBegin(GL_TRIANGLES);
-    for (int i=0; i<12; i++){
-
-        if (i % 2 == 0)
-            glColor3f(0,2,0);
-
-        else
-            glColor3f(1,8,0);
-
-         Vertex_1 = Vertices[CarasC[i][0]];
-         Vertex_2 = Vertices[CarasC[i][1]];
-         Vertex_3 = Vertices[CarasC[i][2]];
-
-        glVertex3f(Vertex_1.x,Vertex_1.y,Vertex_1.z);
-        glVertex3f(Vertex_2.x,Vertex_2.y,Vertex_2.z);
-         glVertex3f(Vertex_3.x,Vertex_3.y,Vertex_3.z);
-    }
-    glEnd();
-
-}
-
-void Cubo::dibuja_cubo_todo(){
-
-    glColor3f(255,0,0);
-    dibuja_cubo_puntos();
-
-    dibuja_cubo_aristas();
-    dibuja_cubo_solido();
-}
 
 
 

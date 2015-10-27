@@ -22,7 +22,7 @@ public:
     void set_vertices(vector<_vertex3f> Vertices);
     void set_caras(vector<Triangle> CarasC);
     void set_Edges(vector<Edge> Edges);
-    _vertex3f get_vertices();
+    vector<_vertex3f> get_vertices();
     void dibuja(int modo);
     void dibuja_puntos();
     void dibuja_aristas();
