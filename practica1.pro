@@ -5,7 +5,8 @@ HEADERS = \
     tetraedro.h \
     objeto3d.h \
     edge.h \
-    triangle.h
+    triangle.h \
+    file_ply_stl.hpp
 
 SOURCES = \
     practica1.cc \

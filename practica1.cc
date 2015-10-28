@@ -14,6 +14,9 @@
 #include <unistd.h>
 #include "cubo.h"
 #include "tetraedro.h"
+#include "file_ply_stl.h"
+//#include "file_ply_stl.hpp"
+
 
 
 
@@ -62,6 +65,7 @@ _vertex2i Edge;
 
 Cubo cubo;
 
+Objeto3D c;
 
 
 //Variables del tetraedro
@@ -194,16 +198,23 @@ glColor3f(1,0,0);
 
 
 glColor3f(0,1,0);
-glPointSize(9);
+glPointSize(2);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
 if (objeto==0){
-    tetraedro.dibuja(modo);
+    //tetraedro.dibuja(modo);
 }else if (objeto==1){
-    cubo.dibuja(modo);
+  //  cubo.dibuja(modo);
   //  cubo.dibuja_cubo(modo);
 }
+
+
+
+
+c.dibuja(3);
+
+
 
 
 /*
@@ -347,6 +358,68 @@ glViewport(0,0,UI_window_width,UI_window_height);
 
 int main(int argc, char **argv)
 {
+
+
+
+
+
+    //archivos ply test de prueba
+
+   _file_ply fply;
+
+
+
+
+
+    int result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/big_dodge.ply");
+
+    cout << "resultado == " << result;
+
+    vector<float> Verts;
+    vector<int> faces;
+    fply.read(Verts,faces);
+
+
+
+    //Objeto3D c;
+    vector<_vertex3f> lista;
+    for (int i=0; i<Verts.size(); i+=3){
+
+        _vertex3f aux;
+        aux.x=Verts[i];
+        aux.y=Verts[i+1];
+        aux.z=Verts[i+2];
+        //lista.insert(lista.begin(),aux);
+        lista.push_back(aux);
+
+
+    }
+    vector<Triangle> listaC;
+
+
+    for (int i=0; i<faces.size(); i+=3){
+        //cout << "\n" << faces[i] << "\n";
+        _vertex3f p1;
+        _vertex3f p2;
+        _vertex3f p3;
+        Triangle auxx;
+        p1=lista[faces[i]];
+        p2=lista[faces[i+1]];
+        p3=lista[faces[i+2]];
+
+        auxx.set_point_1(p1);
+        auxx.set_point_2(p2);
+        auxx.set_point_3(p3);
+        listaC.push_back(auxx);
+        //listaC.insert(listaC.begin(),auxx);
+
+
+    }
+
+    c.set_vertices(lista);
+    c.set_caras(listaC);
+
+
 
 // se llama a la inicialización de glut
 glutInit(&argc, argv);

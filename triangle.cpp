@@ -20,18 +20,18 @@ void Triangle::set_point_3(_vertex3f p3){
 
 _vertex3f Triangle::get_point_1(){
 
-    return this->p1;
+    return p1;
 
 }
 
 _vertex3f Triangle::get_point_2(){
 
-    return this->p2;
+    return p2;
 
 }
 
 _vertex3f Triangle::get_point_3(){
 
-    return this->p3;
+    return p3;
 
 }
