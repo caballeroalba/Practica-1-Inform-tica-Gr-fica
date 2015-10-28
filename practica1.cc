@@ -371,7 +371,7 @@ int main(int argc, char **argv)
 
 
 
-    int result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/big_dodge.ply");
+    int result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/dragon_vrip.ply");
 
     cout << "resultado == " << result;
 
