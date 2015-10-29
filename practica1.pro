@@ -6,7 +6,8 @@ HEADERS = \
     objeto3d.h \
     edge.h \
     triangle.h \
-    file_ply_stl.hpp
+    file_ply_stl.hpp \
+    figuraply.h
 
 SOURCES = \
     practica1.cc \
@@ -15,7 +16,8 @@ SOURCES = \
     tetraedro.cpp \
     objeto3d.cpp \
     edge.cpp \
-    triangle.cpp
+    triangle.cpp \
+    figuraply.cpp
 
 LIBS += -L/casa/dmartin/codigo/funciontecas/freeglut/lib \
     -lglut

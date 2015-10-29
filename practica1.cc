@@ -17,6 +17,7 @@
 #include "file_ply_stl.h"
 #include <QString>
 #include <qinputdialog.h>
+#include "figuraply.h"
 //#include "file_ply_stl.hpp"
 
 
@@ -73,6 +74,11 @@ Objeto3D c;
 //Variables del tetraedro
 
 Tetraedro tetraedro;
+
+//variables de figura ply
+
+FiguraPLy Fply;
+
 
 //variables globales de  los puntos
 
@@ -211,10 +217,10 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
+Fply.dibuja(4);
 
 
 
-c.dibuja(3);
 
 
 
@@ -361,10 +367,11 @@ glViewport(0,0,UI_window_width,UI_window_height);
 int main(int argc, char **argv)
 {
 
+    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/ant.ply");
 
 
     //archivos ply test de prueba
-
+/*
    _file_ply fply;
 
 
@@ -420,7 +427,7 @@ int main(int argc, char **argv)
     c.set_vertices(lista);
     c.set_caras(listaC);
 
-
+*/
 
 // se llama a la inicialización de glut
 glutInit(&argc, argv);
