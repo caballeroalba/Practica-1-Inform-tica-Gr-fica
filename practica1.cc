@@ -15,6 +15,8 @@
 #include "cubo.h"
 #include "tetraedro.h"
 #include "file_ply_stl.h"
+#include <QString>
+#include <qinputdialog.h>
 //#include "file_ply_stl.hpp"
 
 
@@ -361,8 +363,6 @@ int main(int argc, char **argv)
 
 
 
-
-
     //archivos ply test de prueba
 
    _file_ply fply;
@@ -371,7 +371,8 @@ int main(int argc, char **argv)
 
 
 
-    int result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/dragon_vrip.ply");
+
+        int  result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/ant.ply");
 
     cout << "resultado == " << result;
 
