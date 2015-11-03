@@ -18,6 +18,7 @@
 #include <QString>
 #include <qinputdialog.h>
 #include "figuraply.h"
+#include <string>
 //#include "file_ply_stl.hpp"
 
 
@@ -217,7 +218,7 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
-Fply.dibuja(4);
+Fply.dibuja(2);
 
 
 
@@ -367,7 +368,13 @@ glViewport(0,0,UI_window_width,UI_window_height);
 int main(int argc, char **argv)
 {
 
-    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/ant.ply");
+
+
+
+    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
+
+
+
 
 
     //archivos ply test de prueba
