@@ -131,14 +131,42 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     //añadimos los 2 vertices
     _vertex3f v1;
     v1.x=0;
-    v1.y=get_vertices()[0].y;
+    v1.y=VerticesQ1[0].y;
     v1.z=0;
 
     _vertex3f v2;
     v2.x=0;
-    v2.y=get_vertices()[get_vertices().size()].y;
+    v2.y=VerticesQ1[VerticesQ1.size()-2].y;
     v2.z=0;
 
+    //los añadimos
+
+    add_single_vertex(v1);
+    add_single_vertex(v2);
+
+    // y ahora creamos los trianglulos en torno a a v1 y v2
+
+    //parte baja (v1)
+    for (int i=0; i<revoluciones-1; i++){
+
+        Triangle t1;
+        t1.set_point_1(perfilesAlmacenados[i][0]);
+        t1.set_point_2(perfilesAlmacenados[i+1][0]);
+        t1.set_point_3(v1);
+        caras.push_back(t1);
+    }
+
+    //parte alta (v2)
+
+    for (int i=0; i<revoluciones-1; i++){
+
+        Triangle t1;
+        int position= perfilesAlmacenados[i].size();
+        t1.set_point_1(perfilesAlmacenados[i][position-2]);
+        t1.set_point_2(perfilesAlmacenados[i+1][position-2]);
+        t1.set_point_3(v2);
+        caras.push_back(t1);
+    }
 
     set_caras(caras);
 }

@@ -219,7 +219,7 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
-Fply.dibuja(3);
+Fply.dibuja(1);
 
 
 
