@@ -141,3 +141,9 @@ void Objeto3D::clear_vertices(){
 
     this->Vertices.clear();
 }
+
+
+void Objeto3D::add_single_vertex(_vertex3f vertice){
+
+    Vertices.push_back(vertice);
+}

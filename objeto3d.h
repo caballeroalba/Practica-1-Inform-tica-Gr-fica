@@ -30,6 +30,7 @@ public:
     void dibuja_ajedrez();
     void dibuja_todo();
     void clear_vertices();
+    void add_single_vertex(_vertex3f vertice);
 
 
 };

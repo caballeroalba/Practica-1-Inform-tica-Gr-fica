@@ -132,6 +132,14 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     _vertex3f v1;
     v1.x=0;
     v1.y=get_vertices()[0].y;
+    v1.z=0;
+
+    _vertex3f v2;
+    v2.x=0;
+    v2.y=get_vertices()[get_vertices().size()].y;
+    v2.z=0;
+
+
     set_caras(caras);
 }
 
