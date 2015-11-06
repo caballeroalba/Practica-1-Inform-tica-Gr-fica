@@ -124,6 +124,14 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
 
 
     }
+
+    //ahora añadimos la cara superior e inferior añadiendo dos vertices al principio
+    //y al final a la altura del ultimo y primero punto y añadimos los triangulos a este.
+
+    //añadimos los 2 vertices
+    _vertex3f v1;
+    v1.x=0;
+    v1.y=get_vertices()[0].y;
     set_caras(caras);
 }
 
