@@ -29,6 +29,7 @@ public:
     void dibuja_solido();
     void dibuja_ajedrez();
     void dibuja_todo();
+    void clear_vertices();
 
 
 };

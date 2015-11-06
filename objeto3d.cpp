@@ -136,3 +136,8 @@ vector<_vertex3f> Objeto3D::get_vertices(){
 
     return Vertices;
 }
+
+void Objeto3D::clear_vertices(){
+
+    this->Vertices.clear();
+}

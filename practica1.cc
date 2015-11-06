@@ -19,6 +19,7 @@
 #include <qinputdialog.h>
 #include "figuraply.h"
 #include <string>
+#include "figurarevolucion.h"
 //#include "file_ply_stl.hpp"
 
 
@@ -78,7 +79,7 @@ Tetraedro tetraedro;
 
 //variables de figura ply
 
-FiguraPLy Fply;
+figuraRevolucion Fply;
 
 
 //variables globales de  los puntos
@@ -207,7 +208,7 @@ glColor3f(1,0,0);
 
 
 glColor3f(0,1,0);
-glPointSize(2);
+glPointSize(9);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
@@ -218,7 +219,7 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
-Fply.dibuja(2);
+Fply.dibuja(3);
 
 
 
@@ -373,7 +374,7 @@ int main(int argc, char **argv)
 
     Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
 
-
+    Fply.calculaPuntosDesdePerfilQ1(30);
 
 
 
