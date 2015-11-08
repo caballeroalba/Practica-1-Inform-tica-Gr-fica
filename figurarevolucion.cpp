@@ -11,6 +11,17 @@ figuraRevolucion::figuraRevolucion()
 
 }
 
+vector<_vertex3f> figuraRevolucion::getPefilQ1(){
+    return VerticesQ1;
+}
+
+void figuraRevolucion::dibuja_perfil(int modo){
+    vector<_vertex3f> aux=getPefilQ1();
+    set_vertices(aux);
+    dibuja(modo);
+
+}
+
 bool figuraRevolucion::carga_fichero_ply(char *Ruta){
 
     int result=this->fply.open(Ruta);
@@ -90,7 +101,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     }
     //asignamos al objeto actual los vertices revolucionarios
 
-    set_vertices(verticesNuevos);
+    //set_vertices(verticesNuevos);
 
     /*ahora debemos de calcular las caras del objeto según la formula siguiente:
     Las caras longitudinales del sólido (triángulos) se crean a partir de los vértices de dos
@@ -102,12 +113,16 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     */
     vector<Triangle> caras;
 
-    for (int i=0; i<=perfilesAlmacenados.size()-2; i++){
+    for (int i=0; i<perfilesAlmacenados.size()-1; i++){
 
         Triangle cara1;
         Triangle cara2;
 
-        for (int j=0; j<perfilesAlmacenados[i].size()-2; j++){
+        for (int j=0; j<perfilesAlmacenados[i].size()-1; j++){
+            if(j==perfilesAlmacenados.size())
+                continue;
+            if(j==perfilesAlmacenados[i].size())
+                continue;
 
             cara1.set_point_1(perfilesAlmacenados[i][j]);
             cara1.set_point_2(perfilesAlmacenados[i][j+1]);
@@ -136,7 +151,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
 
     _vertex3f v2;
     v2.x=0;
-    v2.y=VerticesQ1[VerticesQ1.size()-2].y;
+    v2.y=VerticesQ1[VerticesQ1.size()-1].y;
     v2.z=0;
 
     //los añadimos
@@ -162,12 +177,12 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
 
         Triangle t1;
         int position= perfilesAlmacenados[i].size();
-        t1.set_point_1(perfilesAlmacenados[i][position-2]);
-        t1.set_point_2(perfilesAlmacenados[i+1][position-2]);
+        t1.set_point_1(perfilesAlmacenados[i][position-1]);
+        t1.set_point_2(perfilesAlmacenados[i+1][position-1]);
         t1.set_point_3(v2);
         caras.push_back(t1);
     }
-
+    set_vertices(verticesNuevos);
     set_caras(caras);
 }
 

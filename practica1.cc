@@ -77,7 +77,7 @@ Objeto3D c;
 
 Tetraedro tetraedro;
 
-//variables de figura ply
+//variables de figura revolución
 
 figuraRevolucion Fply;
 
@@ -212,6 +212,7 @@ glPointSize(9);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
+
 if (objeto==0){
     //tetraedro.dibuja(modo);
 }else if (objeto==1){
@@ -219,7 +220,8 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
-Fply.dibuja(1);
+Fply.dibuja(4);
+//Fply.dibuja_perfil(0);
 
 
 
