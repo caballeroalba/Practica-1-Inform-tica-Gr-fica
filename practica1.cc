@@ -130,6 +130,9 @@ void cambio_objeto(unsigned char Tecla1){
     case '8':
         objeto=8;
         break;
+    case '9':
+        objeto=9;
+        break;
     default:
         break;
     }
@@ -172,19 +175,7 @@ void cambio_modo(unsigned char Tecla1){
 
 }
 
-void perfil_revolucionario(){
-    if(estaRevolucionada==false){
-        FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
-        estaRevolucionada=true;
-    }else{
-        FiguraRevolucionaria.set_perfil();
 
-        estaRevolucionada=false;
-    }
-
-
-
-}
 
 //**************************************************************************
 //
@@ -283,6 +274,9 @@ case 3: //Figura Rev 1
     break;
 case 8: //Figura ply 1;
     Fply.dibuja(modo);
+    break;
+case 9:
+    FiguraRevolucionaria.dibuja(modo);
 }
 
 if (objeto==0){
@@ -363,12 +357,12 @@ void normal_keys(unsigned char Tecla1,int x,int y)
     cout << (int)Tecla1;
 if (toupper(Tecla1)=='Q') exit(0);
 if (toupper(Tecla1)=='S') cambio_modo(Tecla1);
-if (toupper(Tecla1) <='8' && toupper(Tecla1) >= '0') cambio_objeto(Tecla1);
+if (toupper(Tecla1) <='9' && toupper(Tecla1) >= '0') cambio_objeto(Tecla1);
 if (toupper(Tecla1)=='P') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='C') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='A') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='T') cambio_modo(Tecla1);
-if (toupper(Tecla1)=='R') perfil_revolucionario();
+
 
 
 
@@ -447,7 +441,8 @@ int main(int argc, char **argv)
 
 
 
-  //  FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
+    FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
+    FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
 
 
