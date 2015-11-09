@@ -1,3 +1,4 @@
+
 #include "figurarevolucion.h"
 
 figuraRevolucion::figuraRevolucion()
@@ -41,6 +42,7 @@ bool figuraRevolucion::carga_fichero_ply(char *Ruta){
 
 
 void figuraRevolucion::set_perfil(){
+    clear_vertices();
     set_vertices(getPefilQ1());
 }
 
@@ -50,6 +52,7 @@ void figuraRevolucion::setRevoluciones(int n){
 
 
 void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
+     VerticesQ1=get_vertices();
 
     //Según las revoluciones, calculamos los puntos en
     //vector de puntos finales Vertices.
@@ -158,7 +161,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     v2.z=0;
 
     //los añadimos
-
+/*
     add_single_vertex(v1);
     add_single_vertex(v2);
 
@@ -185,8 +188,11 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
         t1.set_point_3(v2);
         caras.push_back(t1);
     }
+
+    */
     set_vertices(verticesNuevos);
     set_caras(caras);
+
 }
 
 //hay que pasarlo a una matriz de 4x4 o hacer una clase transformaciones

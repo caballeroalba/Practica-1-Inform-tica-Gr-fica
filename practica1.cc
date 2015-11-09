@@ -83,18 +83,56 @@ figuraRevolucion FiguraRevolucionaria;
 bool estaRevolucionada=false;
 
 
+
+//perfiles de prueba para la practica
+
+figuraRevolucion figuraR1;
+figuraRevolucion figuraR2;
+figuraRevolucion figuraR3;
+figuraRevolucion figuraR4;
+figuraRevolucion figuraR5;
+
+
+
 //variable del fichero ply
 
 FiguraPLy Fply;
 
 
 
-void cambio_objeto(){
+void cambio_objeto(unsigned char Tecla1){
 
-    if(objeto==3)
+    switch (Tecla1) {
+    case '0':
         objeto=0;
-    else
-        objeto++;
+        break;
+    case '1':
+        objeto=1;
+        break;
+    case '2':
+        objeto=2;
+        break;
+    case '3':
+        objeto=3;
+        break;
+    case '4':
+        objeto=4;
+        break;
+    case '5':
+        objeto=5;
+        break;
+    case '6':
+        objeto=6;
+        break;
+    case '7':
+        objeto=7;
+        break;
+    case '8':
+        objeto=8;
+        break;
+    default:
+        break;
+    }
 
 
 }
@@ -139,7 +177,9 @@ void perfil_revolucionario(){
         FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
         estaRevolucionada=true;
     }else{
+        FiguraRevolucionaria.set_perfil();
 
+        estaRevolucionada=false;
     }
 
 
@@ -233,13 +273,16 @@ case 0://cubo
 case 1://tetraedro
     tetraedro.dibuja(modo);
     break;
-case 2: //figura ply
-    Fply.dibuja(modo);
+case 2: //*
+
     break;
 
-case 3: //perfil revolucionario
-    FiguraRevolucionaria.dibuja(modo);
+case 3: //Figura Rev 1
+   // FiguraRevolucionaria.dibuja(modo);
+    figuraR1.dibuja(modo);
     break;
+case 8: //Figura ply 1;
+    Fply.dibuja(modo);
 }
 
 if (objeto==0){
@@ -317,9 +360,10 @@ glutPostRedisplay();
 void normal_keys(unsigned char Tecla1,int x,int y)
 {
 
+    cout << (int)Tecla1;
 if (toupper(Tecla1)=='Q') exit(0);
 if (toupper(Tecla1)=='S') cambio_modo(Tecla1);
-if (toupper(Tecla1)=='O') cambio_objeto();
+if (toupper(Tecla1) <='8' && toupper(Tecla1) >= '0') cambio_objeto(Tecla1);
 if (toupper(Tecla1)=='P') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='C') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='A') cambio_modo(Tecla1);
@@ -403,70 +447,38 @@ int main(int argc, char **argv)
 
 
 
-
-    FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
-    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
-
+  //  FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
+   Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
 
 
-    //archivos ply test de prueba
-/*
-   _file_ply fply;
+    //perfiles de prueba para la practica:
+
+    vector<_vertex3f> verticesF1;
+
+    _vertex3f pf1;
+    pf1.x=0;
+    pf1.y=-1;
+    pf1.z=0;
+
+    _vertex3f pf2;
+    pf2.x=2;
+    pf2.y=-1;
+    pf2.z=0;
+
+    _vertex3f pf3;
+
+    pf3.x=3;
+    pf3.y=1;
+    pf3.z=0;
+
+    verticesF1.push_back(pf1);
+    verticesF1.push_back(pf2);
+    verticesF1.push_back(pf3);
+    figuraR1.set_vertices(verticesF1);
+
+    figuraR1.calculaPuntosDesdePerfilQ1(30);
 
 
-
-
-
-
-        int  result=fply.open("/home/caballeroalba/compilar_qtcreator/modelos_ply/ant.ply");
-
-    cout << "resultado == " << result;
-
-    vector<float> Verts;
-    vector<int> faces;
-    fply.read(Verts,faces);
-
-
-
-    //Objeto3D c;
-    vector<_vertex3f> lista;
-    for (int i=0; i<Verts.size(); i+=3){
-
-        _vertex3f aux;
-        aux.x=Verts[i];
-        aux.y=Verts[i+1];
-        aux.z=Verts[i+2];
-        //lista.insert(lista.begin(),aux);
-        lista.push_back(aux);
-
-
-    }
-    vector<Triangle> listaC;
-
-
-    for (int i=0; i<faces.size(); i+=3){
-        //cout << "\n" << faces[i] << "\n";
-        _vertex3f p1;
-        _vertex3f p2;
-        _vertex3f p3;
-        Triangle auxx;
-        p1=lista[faces[i]];
-        p2=lista[faces[i+1]];
-        p3=lista[faces[i+2]];
-
-        auxx.set_point_1(p1);
-        auxx.set_point_2(p2);
-        auxx.set_point_3(p3);
-        listaC.push_back(auxx);
-        //listaC.insert(listaC.begin(),auxx);
-
-
-    }
-
-    c.set_vertices(lista);
-    c.set_caras(listaC);
-
-*/
 
 // se llama a la inicialización de glut
 glutInit(&argc, argv);
