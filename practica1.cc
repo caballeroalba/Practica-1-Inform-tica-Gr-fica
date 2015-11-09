@@ -50,7 +50,7 @@ int UI_window_pos_x=50,UI_window_pos_y=50,UI_window_width=900,UI_window_height=9
 // 0 = cubo
 // 1 = tetra
 
-int objeto=1;
+int objeto=0;
 
 // var para determinar el tipo de dibujado, puntos, trianglulos, etc.
 
@@ -79,20 +79,22 @@ Tetraedro tetraedro;
 
 //variables de figura revolución
 
-figuraRevolucion Fply;
+figuraRevolucion FiguraRevolucionaria;
+bool estaRevolucionada=false;
 
 
-//variables globales de  los puntos
+//variable del fichero ply
+
+FiguraPLy Fply;
 
 
 
 void cambio_objeto(){
 
-    if(objeto==0) //cambio a tetra
-        objeto=1;
-
-    else if(objeto == 1) //cambio a cubo
-            objeto=0;
+    if(objeto==3)
+        objeto=0;
+    else
+        objeto++;
 
 
 }
@@ -128,6 +130,18 @@ void cambio_modo(unsigned char Tecla1){
 
     if(toupper(Tecla1)=='T') // todo a la vez
         modo=4;
+
+
+}
+
+void perfil_revolucionario(){
+    if(estaRevolucionada==false){
+        FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
+        estaRevolucionada=true;
+    }else{
+
+    }
+
 
 
 }
@@ -212,6 +226,21 @@ glPointSize(9);
 glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
 
 
+switch (objeto) {
+case 0://cubo
+    cubo.dibuja(modo);
+    break;
+case 1://tetraedro
+    tetraedro.dibuja(modo);
+    break;
+case 2: //figura ply
+    Fply.dibuja(modo);
+    break;
+
+case 3: //perfil revolucionario
+    FiguraRevolucionaria.dibuja(modo);
+    break;
+}
 
 if (objeto==0){
     //tetraedro.dibuja(modo);
@@ -220,7 +249,7 @@ if (objeto==0){
   //  cubo.dibuja_cubo(modo);
 }
 
-Fply.dibuja(4);
+//Fply.dibuja(1);
 //Fply.dibuja_perfil(0);
 
 
@@ -295,6 +324,7 @@ if (toupper(Tecla1)=='P') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='C') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='A') cambio_modo(Tecla1);
 if (toupper(Tecla1)=='T') cambio_modo(Tecla1);
+if (toupper(Tecla1)=='R') perfil_revolucionario();
 
 
 
@@ -374,9 +404,8 @@ int main(int argc, char **argv)
 
 
 
-    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
-
-    Fply.calculaPuntosDesdePerfilQ1(30);
+    FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
+    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
 
 
 

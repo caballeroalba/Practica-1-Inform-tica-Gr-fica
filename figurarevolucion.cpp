@@ -29,7 +29,7 @@ bool figuraRevolucion::carga_fichero_ply(char *Ruta){
 
     if (result == 0){
         carga_datos_ply();
-         VerticesQ1=get_vertices();
+        VerticesQ1=get_vertices();
         return true;
     }else{
         return false;
@@ -40,6 +40,9 @@ bool figuraRevolucion::carga_fichero_ply(char *Ruta){
 }
 
 
+void figuraRevolucion::set_perfil(){
+    set_vertices(getPefilQ1());
+}
 
 void figuraRevolucion::setRevoluciones(int n){
     this->numeroRevoluciones=n;
