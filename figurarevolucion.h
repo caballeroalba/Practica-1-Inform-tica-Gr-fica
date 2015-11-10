@@ -8,13 +8,14 @@ class figuraRevolucion : public FiguraPLy
 {
 private:
     int numeroRevoluciones;
-    int grados;
+    double grados;
     vector<_vertex3f> VerticesQ1;
     vector<_vertex3f> VerticesFinales;
 
 
 public:
     figuraRevolucion();
+    figuraRevolucion(int numRev, double gradosARev);
     void setRevoluciones(int n);
     void calculaPuntosDesdePerfilQ1(int revoluciones);
     bool carga_fichero_ply(char *Ruta);

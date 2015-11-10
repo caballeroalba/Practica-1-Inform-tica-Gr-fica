@@ -5,10 +5,19 @@ figuraRevolucion::figuraRevolucion()
 {
 
 
-    //primero rellenamos los vertices iniciales en q1
+
+    //grados por defecto en constructor normal
     grados=30;
 
 
+
+}
+
+figuraRevolucion::figuraRevolucion(int numRev, double gradosARev){
+
+    // se han de calcular los grados en función del numero de divisiones y total de grados a rotar
+    //ej: Revolucionar 9 grados con 10 divisiones, pues los grados son: 90/10= 9º
+    grados=gradosARev/numRev;
 
 }
 
