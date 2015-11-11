@@ -86,7 +86,7 @@ bool estaRevolucionada=false;
 
 //perfiles de prueba para la practica
 
-figuraRevolucion figuraR1;
+figuraRevolucion figuraR1(30,360);
 figuraRevolucion figuraR2;
 figuraRevolucion figuraR3;
 figuraRevolucion figuraR4;
@@ -442,7 +442,7 @@ int main(int argc, char **argv)
 
 
     FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
-    FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
+   // FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
 
 
@@ -471,7 +471,7 @@ int main(int argc, char **argv)
     verticesF1.push_back(pf3);
     figuraR1.set_vertices(verticesF1);
 
-    figuraR1.calculaPuntosDesdePerfilQ1(30);
+    figuraR1.calculaPuntosDesdePerfilQ1();
 
 
 

@@ -18,6 +18,8 @@ figuraRevolucion::figuraRevolucion(int numRev, double gradosARev){
     // se han de calcular los grados en función del numero de divisiones y total de grados a rotar
     //ej: Revolucionar 9 grados con 10 divisiones, pues los grados son: 90/10= 9º
     grados=gradosARev/numRev;
+    numeroRevoluciones=numRev;
+    this->gradosARev=gradosARev;
 
 }
 
@@ -60,7 +62,7 @@ void figuraRevolucion::setRevoluciones(int n){
 }
 
 
-void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
+void figuraRevolucion::calculaPuntosDesdePerfilQ1(){
      VerticesQ1=get_vertices();
 
     //Según las revoluciones, calculamos los puntos en
@@ -77,12 +79,16 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     vector<vector<_vertex3f> > perfilesAlmacenados;
     vector<_vertex3f> perfilActual;
     vector<_vertex3f> perfilAux;
-    for (int i=0; i<revoluciones; i++){
+    double cuenta;
+    for (int i=0; i<=numeroRevoluciones; i++){
 
-
+        if(cuenta>=gradosARev)
+            continue;
         //primera vez
         if(perfilesAlmacenados.empty()){
             perfilActual=get_vertices();
+            //y añadimos el perfil q1 al principio
+            perfilesAlmacenados.push_back(getPefilQ1());
         }
 
         for (int j=0; j<perfilActual.size(); j++){
@@ -99,6 +105,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
         perfilActual=perfilAux;
 
         perfilAux.clear();
+        cuenta+=grados;
 
         }
 
@@ -106,6 +113,11 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     //cargamos todos los vertices almacenados en perfilesAlmacenados en vertices
     vector<_vertex3f> verticesNuevos;
     vector<_vertex3f> perfil;
+    //primero añadimos el los vertices q1 antes al principio a vertices nuevos
+
+    for (int i=0; i<getPefilQ1().size(); i++){
+        verticesNuevos.push_back(getPefilQ1()[i]);
+    }
     for (int i=0; i<perfilesAlmacenados.size(); i++){
         perfil=perfilesAlmacenados[i];
         for (int j=0; j<perfil.size(); j++){
@@ -154,7 +166,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
 
 
     }
-
+/*
     //ahora añadimos la cara superior e inferior añadiendo dos vertices al principio
     //y al final a la altura del ultimo y primero punto y añadimos los triangulos a este.
 
@@ -170,7 +182,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(int revoluciones){
     v2.z=0;
 
     //los añadimos
-/*
+
     add_single_vertex(v1);
     add_single_vertex(v2);
 
@@ -213,6 +225,7 @@ _vertex3f figuraRevolucion::rotaPorEjeYMatricial(_vertex3f vertice){
     _vertex3f result;
 
     double grados2 = gradosARadianes(grados);
+
     result.x=vertice.x*cos(grados2)+vertice.y*0+vertice.z*sin(grados2);
     result.y=vertice.y;
     result.z=vertice.x*-sin(grados2)+vertice.y*0+vertice.z*cos(grados2);
