@@ -282,7 +282,7 @@ case 5:
 case 6:
     figuraR4.dibuja(modo);
     break;
-case7:
+case 7:
     figuraR5.dibuja(modo);
     break;
 case 8: //Figura ply 1;
