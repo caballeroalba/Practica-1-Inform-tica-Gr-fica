@@ -86,11 +86,11 @@ bool estaRevolucionada=false;
 
 //perfiles de prueba para la practica
 
-figuraRevolucion figuraR1(30,360);
-figuraRevolucion figuraR2(30,360);
-figuraRevolucion figuraR3(30,360);
-figuraRevolucion figuraR4(30,360);
-figuraRevolucion figuraR5(30,360);
+figuraRevolucion figuraR1(30,90,90);
+figuraRevolucion figuraR2(30,90,0);
+figuraRevolucion figuraR3(30,360,0);
+figuraRevolucion figuraR4(30,360,0);
+figuraRevolucion figuraR5(30,360,0);
 
 
 

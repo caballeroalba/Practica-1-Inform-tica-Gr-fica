@@ -13,13 +13,14 @@ figuraRevolucion::figuraRevolucion()
 
 }
 
-figuraRevolucion::figuraRevolucion(int numRev, double gradosARev){
+figuraRevolucion::figuraRevolucion(int numRev, double gradosARev, double gradosInicial){
 
     // se han de calcular los grados en función del numero de divisiones y total de grados a rotar
     //ej: Revolucionar 9 grados con 10 divisiones, pues los grados son: 90/10= 9º
     grados=gradosARev/numRev;
     numeroRevoluciones=numRev;
     this->gradosARev=gradosARev;
+    this->gradosInical=gradosInicial;
 
 }
 
@@ -63,6 +64,21 @@ void figuraRevolucion::setRevoluciones(int n){
 
 
 void figuraRevolucion::calculaPuntosDesdePerfilQ1(){
+    //movemos al grado inicial en el que nos piden
+
+     vector<_vertex3f> grados_inicial;
+     grados_inicial=get_vertices();
+     vector<_vertex3f> grados_aux;
+
+     _vertex3f punto;
+     _vertex3f puntoaux;
+
+     for (int i=0; i<grados_inicial.size(); i++){
+
+         punto = rotaPorEjeYMatricialInicial(grados_inicial[i]);
+         grados_aux.push_back(punto);
+     }
+     set_vertices(grados_aux);
      VerticesQ1=get_vertices();
 
     //Según las revoluciones, calculamos los puntos en
@@ -225,6 +241,18 @@ _vertex3f figuraRevolucion::rotaPorEjeYMatricial(_vertex3f vertice){
     _vertex3f result;
 
     double grados2 = gradosARadianes(grados);
+
+    result.x=vertice.x*cos(grados2)+vertice.y*0+vertice.z*sin(grados2);
+    result.y=vertice.y;
+    result.z=vertice.x*-sin(grados2)+vertice.y*0+vertice.z*cos(grados2);
+    return result;
+
+}
+
+_vertex3f figuraRevolucion::rotaPorEjeYMatricialInicial(_vertex3f vertice){
+    _vertex3f result;
+
+    double grados2 = gradosARadianes(gradosInical);
 
     result.x=vertice.x*cos(grados2)+vertice.y*0+vertice.z*sin(grados2);
     result.y=vertice.y;
