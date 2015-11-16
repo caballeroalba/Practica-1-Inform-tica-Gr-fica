@@ -87,10 +87,10 @@ bool estaRevolucionada=false;
 //perfiles de prueba para la practica
 
 figuraRevolucion figuraR1(30,360);
-figuraRevolucion figuraR2;
-figuraRevolucion figuraR3;
-figuraRevolucion figuraR4;
-figuraRevolucion figuraR5;
+figuraRevolucion figuraR2(30,360);
+figuraRevolucion figuraR3(30,360);
+figuraRevolucion figuraR4(30,360);
+figuraRevolucion figuraR5(30,360);
 
 
 
@@ -272,6 +272,19 @@ case 3: //Figura Rev 1
    // FiguraRevolucionaria.dibuja(modo);
     figuraR1.dibuja(modo);
     break;
+case 4:
+    figuraR2.dibuja(modo);
+    break;
+
+case 5:
+    figuraR3.dibuja(modo);
+    break;
+case 6:
+    figuraR4.dibuja(modo);
+    break;
+case7:
+    figuraR5.dibuja(modo);
+    break;
 case 8: //Figura ply 1;
     Fply.dibuja(modo);
     break;
@@ -442,17 +455,17 @@ int main(int argc, char **argv)
 
 
     FiguraRevolucionaria.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/perfil2.ply");
-   // FiguraRevolucionaria.calculaPuntosDesdePerfilQ1(30);
+    //FiguraRevolucionaria.calculaPuntosDesdePerfilQ1();
    Fply.carga_fichero_ply("/home/caballeroalba/compilar_qtcreator/modelos_ply/armadillo.ply");
 
 
     //perfiles de prueba para la practica:
-
+    //figura 1
     vector<_vertex3f> verticesF1;
 
     _vertex3f pf1;
-    pf1.x=0;
-    pf1.y=-1;
+    pf1.x=2;
+    pf1.y=1;
     pf1.z=0;
 
     _vertex3f pf2;
@@ -460,18 +473,105 @@ int main(int argc, char **argv)
     pf2.y=-1;
     pf2.z=0;
 
-    _vertex3f pf3;
-
-    pf3.x=3;
-    pf3.y=1;
-    pf3.z=0;
-
     verticesF1.push_back(pf1);
     verticesF1.push_back(pf2);
-    verticesF1.push_back(pf3);
     figuraR1.set_vertices(verticesF1);
-
     figuraR1.calculaPuntosDesdePerfilQ1();
+
+    //figura 2
+
+    _vertex3f pf12;
+    pf12.x=0;
+    pf12.y=-1;
+    pf12.z=0;
+
+    _vertex3f pf22;
+    pf22.x=2;
+    pf22.y=-1;
+    pf22.z=0;
+
+    _vertex3f pf32;
+    pf32.x=3;
+    pf32.y=1;
+    pf32.z=0;
+
+    vector<_vertex3f> verticesF2;
+    verticesF2.push_back(pf12);
+    verticesF2.push_back(pf22);
+    verticesF2.push_back(pf32);
+    figuraR2.set_vertices(verticesF2);
+    figuraR2.calculaPuntosDesdePerfilQ1();
+
+
+    //figura 3:
+
+    _vertex3f pf13;
+    pf13.x=2;
+    pf13.y=-1;
+    pf13.z=0;
+
+    _vertex3f pf23;
+    pf23.x=1;
+    pf23.y=1;
+    pf23.z=0;
+    _vertex3f pf33;
+    pf33.x=0;
+    pf33.y=1;
+    pf33.z=0;
+
+
+    vector<_vertex3f> verticesF3;
+    verticesF3.push_back(pf13);
+    verticesF3.push_back(pf23);
+    verticesF3.push_back(pf33);
+    figuraR3.set_vertices(verticesF3);
+    figuraR3.calculaPuntosDesdePerfilQ1();
+
+
+    //figura 4;
+    _vertex3f pf14;
+    pf14.x=0;
+    pf14.y=-1;
+    pf14.z=0;
+    _vertex3f pf24;
+    pf24.x=1;
+    pf24.y=-1;
+    pf24.z=0;
+    _vertex3f pf34;
+    pf34.x=1;
+    pf34.y=1;
+    pf34.z=0;
+    _vertex3f pf44;
+    pf44.x=0;
+    pf44.y=1;
+    pf44.z=0;
+    vector<_vertex3f> verticesF4;
+    verticesF4.push_back(pf14);
+    verticesF4.push_back(pf24);;
+    verticesF4.push_back(pf34);
+    verticesF4.push_back(pf44);
+    figuraR4.set_vertices(verticesF4);;
+    figuraR4.calculaPuntosDesdePerfilQ1();
+
+    //figura 5;
+    _vertex3f f15;
+    f15.x=0;
+    f15.y=-1;
+    f15.z=0;
+    _vertex3f f25;
+    f25.x=1;
+    f25.y=-1;
+    f25.z=0;
+    _vertex3f f35;
+    f35.x=0;
+    f35.y=1;
+    f35.z=0;
+    vector<_vertex3f> verticesF5;
+    verticesF5.push_back(f15);
+    verticesF5.push_back(f25);
+    verticesF5.push_back(f35);
+    figuraR5.set_vertices(verticesF5);
+    figuraR5.calculaPuntosDesdePerfilQ1();
 
 
 
