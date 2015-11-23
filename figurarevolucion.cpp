@@ -95,7 +95,7 @@ void figuraRevolucion::calculaPuntosDesdePerfilQ1(){
     vector<vector<_vertex3f> > perfilesAlmacenados;
     vector<_vertex3f> perfilActual;
     vector<_vertex3f> perfilAux;
-    double cuenta;
+    double cuenta=gradosInical;
     for (int i=0; i<=numeroRevoluciones; i++){
 
         if(cuenta>=gradosARev)
